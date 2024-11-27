@@ -12,46 +12,112 @@
         body {
             margin: 0;
             height: 100%;
-            overflow: hidden; /* Prevent scrolling */
-            display: flex; /* Use flexbox for alignment */
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center elements horizontally */
-            justify-content: center; /* Center vertically */
+            overflow: hidden;
+            /* Prevent scrolling */
+            display: flex;
+            /* Use flexbox for alignment */
+            flex-direction: column;
+            /* Stack elements vertically */
+            align-items: center;
+            /* Center elements horizontally */
+            justify-content: center;
+            /* Center vertically */
         }
 
         .FrameDiv {
-            width: 100%; /* Full width */
+            width: 100%;
+            /* Full width */
             display: flex;
-            flex-direction: column; /* Stack LineDivs vertically */
-            align-items: center; /* Center LineDivs */
+            flex-direction: column;
+            /* Stack LineDivs vertically */
+            align-items: center;
+            /* Center LineDivs */
         }
 
         .LineDiv {
-            display: flex; /* Use flexbox to align images */
-            justify-content: center; /* Center images within LineDiv */
-            margin: 1px 0; /* Add some vertical spacing */
+            display: flex;
+            /* Use flexbox to align images */
+            justify-content: center;
+            /* Center images within LineDiv */
+            margin: 1px 0;
+            /* Add some vertical spacing */
         }
 
         .Box {
-            margin: 1px; /* Add horizontal spacing between images */
+            margin: 1px;
+            /* Add horizontal spacing between images */
+            align-items: center;
+            justify-content: center;
+            background-image: url(1.jpeg);
+            max-width: 300GE px;
+            /* Ensure images do not exceed their container */
+            height: 300px;
+            /* Maintain aspect ratio */
+            max-height: 300px;
+            /* Set a max height for images */
+            display: block;
+            /* Prevent any extra space below the image */
+            width: 300px;
         }
 
         .imgs {
-            max-width: 100%; /* Ensure images do not exceed their container */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 300px; /* Set a max height for images */
-            display: block; /* Prevent any extra space below the image */
+            max-width: 100%;
+            /* Ensure images do not exceed their container */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-height: 300px;
+            /* Set a max height for images */
+            display: block;
+            /* Prevent any extra space below the image */
+        }
+
+        .pawn {
+            border-radius: 50%;
+            border: 15px solid transparent;
+            /* border: 15px solid transparent; */
+        }
+
+        .pawn1 {
+            background: linear-gradient(#222, #222),
+                linear-gradient(135deg, #FDD819 10%, #f50202 100%);
+            /* linear-gradient(to right, red, purple); */
+            background-origin: padding-box, border-box;
+            background-repeat: no-repeat;
+            /* this is important */
+            /* background-image: linear-gradient( 135deg, #FEB692 10%, #EA5455 100%); */
+        }
+
+        .pawn2 {
+            background: linear-gradient(#222, #222),
+                linear-gradient(#6B73FF, #000DFF);
+            /* linear-gradient(to right, red, purple); */
+            background-origin: padding-box, border-box;
+            background-repeat: no-repeat;
+            /* this is important */
+            /* background: linear-gradient( #6B73FF, #000DFF ); */
         }
 
         @media only screen and (max-width: 1200px) {
             .imgs {
-                max-height: 200px; /* Adjust max height for smaller screens */
+                max-height: 200px;
+                /* Adjust max height for smaller screens */
+            }
+
+            .Box {
+                max-height: 200px;
+                /* Adjust max height for smaller screens */
             }
         }
 
         @media only screen and (max-width: 600px) {
             .imgs {
-                max-height: 150px; /* Further reduce max height for smaller screens */
+                max-height: 150px;
+                /* Further reduce max height for smaller screens */
+            }
+
+            .Box {
+                max-height: 150px;
+                /* Further reduce max height for smaller screens */
             }
         }
     </style>
@@ -61,11 +127,38 @@
 
     <div class="FrameDiv">
         <div class="LineDiv">
-            <span class="Box" id="2"><img src="1.jpeg" class="imgs"></span>
-            <span class="Box" id="1"><img src="1.jpeg" class="imgs"></span>
-            <span class="Box" id="0"><img src="2.jpeg" class="imgs"></span>
-            <span class="Box" id="15"><img src="1.jpeg" class="imgs"></span>
-            <span class="Box" id="14"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="2"></span>
+            <span class="Box" id="1"></span>
+            <div class="Box" id="0">
+
+                <div class="square border border-dark p-3" style="display: flex; flex-wrap: wrap;">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="block" id="B1">
+                                <div id="blue_1" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B2">
+                                <div id="blue_2" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B3">
+                                <div id="blue_3" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B4">
+                                <div id="blue_4" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="Box" id="15"></span>
+            <span class="Box" id="14"></span>
         </div>
 
         <div class="LineDiv">
@@ -95,7 +188,32 @@
         <div class="LineDiv">
             <span class="Box" id="6"><img src="1.jpeg" class="imgs"></span>
             <span class="Box" id="7"><img src="1.jpeg" class="imgs"></span>
-            <span class="Box" id="8"><img src="2.jpeg" class="imgs"></span>
+            <span class="Box" id="8">
+                <div class="square border border-dark p-3" style="display: flex; flex-wrap: wrap;">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="block" id="B1">
+                                <div id="blue_1" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B2">
+                                <div id="blue_2" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B3">
+                                <div id="blue_3" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="block" id="B4">
+                                <div id="blue_4" class="pawn pawn2" onclick="MovePawn(this.id)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
             <span class="Box" id="9"><img src="1.jpeg" class="imgs"></span>
             <span class="Box" id="10"><img src="1.jpeg" class="imgs"></span>
         </div>
