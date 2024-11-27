@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavade</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset default margin and height for html and body */
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex; /* Use flexbox for alignment */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center elements horizontally */
+            justify-content: center; /* Center vertically */
+        }
+
+        .FrameDiv {
+            width: 100%; /* Full width */
+            display: flex;
+            flex-direction: column; /* Stack LineDivs vertically */
+            align-items: center; /* Center LineDivs */
+        }
+
+        .LineDiv {
+            display: flex; /* Use flexbox to align images */
+            justify-content: center; /* Center images within LineDiv */
+            margin: 1px 0; /* Add some vertical spacing */
+        }
+
+        .Box {
+            margin: 1px; /* Add horizontal spacing between images */
+        }
+
+        .imgs {
+            max-width: 100%; /* Ensure images do not exceed their container */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 300px; /* Set a max height for images */
+            display: block; /* Prevent any extra space below the image */
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .imgs {
+                max-height: 200px; /* Adjust max height for smaller screens */
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .imgs {
+                max-height: 150px; /* Further reduce max height for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="FrameDiv">
+        <div class="LineDiv">
+            <span class="Box" id="2"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="1"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="0"><img src="2.jpeg" class="imgs"></span>
+            <span class="Box" id="15"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="14"><img src="1.jpeg" class="imgs"></span>
+        </div>
+
+        <div class="LineDiv">
+            <span class="Box" id="3"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="22"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="23"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="16"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="13"><img src="1.jpeg" class="imgs"></span>
+        </div>
+
+        <div class="LineDiv">
+            <span class="Box" id="4"><img src="2.jpeg" class="imgs"></span>
+            <span class="Box" id="21"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="24"><img src="2.jpeg" class="imgs"></span>
+            <span class="Box" id="17"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="12"><img src="2.jpeg" class="imgs"></span>
+        </div>
+
+        <div class="LineDiv">
+            <span class="Box" id="5"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="20"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="19"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="18"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="11"><img src="1.jpeg" class="imgs"></span>
+        </div>
+
+        <div class="LineDiv">
+            <span class="Box" id="6"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="7"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="8"><img src="2.jpeg" class="imgs"></span>
+            <span class="Box" id="9"><img src="1.jpeg" class="imgs"></span>
+            <span class="Box" id="10"><img src="1.jpeg" class="imgs"></span>
+        </div>
+    </div>
+
+    <script>
+        // Add any JavaScript functionality here if needed
+    </script>
+</body>
+
+</html>
