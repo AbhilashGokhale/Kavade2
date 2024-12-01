@@ -11,7 +11,7 @@
 <body>
 
     <div class="FrameDiv">
-        <div class="Point_display" id="Point_display1"></div>
+        <div class="Point_display Point_display1" id="Point_display1"></div>
 
         <div class="LineDiv">
             <div class="Box" id="2"></div>
@@ -138,7 +138,7 @@
             <div class="Box" id="10"></div>
         </div>
         <div class="Point_display" id="Point_display2"></div>
-    </div>Check
+    </div>
     <div id="win_pawns"></div>
     <script>
         var Roll_val = 0;
@@ -239,43 +239,355 @@
                 current_value = current_vals[0];
             }
             //-------------------------------------------------------------------------------------------------------------------------------------
-            var pawn_to_pos = parseInt(current_value) + parseInt(current_pos);  // Move pawn
-
-            document.getElementById(pawn_to_pos).appendChild(document.getElementById(Pawn_id));
+            //Check if number is allowed
+            if (Pawn_id.includes('red')) {
+                if (current_pos == "23") {
+                    if (current_value > 1) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "22") {
+                    if (current_value > 2) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "21") {
+                    if (current_value > 3) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "20") {
+                    if (current_value > 4) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "19" || current_pos == "18" || current_pos == "17") {
+                    if (current_value > 7) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+            }
+            else if (Pawn_id.includes('blue')) {
+                if (current_pos == "21") {
+                    if (current_value > 1) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "20") {
+                    if (current_value > 2) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "19") {
+                    if (current_value > 3) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "18") {
+                    if (current_value > 4) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "17" || current_pos == "16" || current_pos == "23") {
+                    if (current_value > 7) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+            }
+            else if (Pawn_id.includes('black')) {
+                if (current_pos == "17") {
+                    if (current_value > 1) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "16") {
+                    if (current_value > 2) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "23") {
+                    if (current_value > 3) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "22") {
+                    if (current_value > 4) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "21" || current_pos == "20" || current_pos == "19") {
+                    if (current_value > 7) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+            }
+            else if (Pawn_id.includes('yellow')) {
+                if (current_pos == "19") {
+                    if (current_value > 1) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "18") {
+                    if (current_value > 2) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "17") {
+                    if (current_value > 3) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "16") {
+                    if (current_value > 4) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+                if (current_pos == "23" || current_pos == "22" || current_pos == "21") {
+                    if (current_value > 7) {
+                        alert("Move any other pawn");
+                        return;
+                    }
+                }
+            }
 
             //-------------------------------------------------------------------------------------------------------------------------------------
-            var display_val = "";
-            var first = 'X';
-            if (current_vals.length > 1) {
-                for (i = 0; i < current_vals.length; i++) {
-                    if (current_vals[i] != current_value) {
-                        if (first == 'X') {
-                            display_val = display_val.concat(current_vals[i]);
-                            first = ""
+            skip_this_loop = false;
+            var loop_counter = 0;
+            pawn_to_pos = parseInt(current_pos);
+            var starting_pos = current_pos;
+            var pawn_to_pos_last = parseInt(current_pos);
+
+            for (i = 0; i < parseInt(current_value); i++) {
+                setTimeout(() => {
+                    loop_counter = loop_counter + 1;
+                    pawn_to_pos = 1 + pawn_to_pos;
+                    pawn_to_pos = correct_pos(pawn_to_pos, pawn_to_pos_last, Pawn_id);
+                    document.getElementById(pawn_to_pos).appendChild(document.getElementById(Pawn_id));
+                    pawn_to_pos_last = pawn_to_pos;
+
+
+
+                    if (loop_counter == parseInt(current_value)) {
+                        if (pawn_to_pos != 0 || pawn_to_pos != 4 || pawn_to_pos != 8 || pawn_to_pos != 12 || pawn_to_pos != 24) {
+                            try { var prev_element = document.getElementById(Pawn_id).previousSibling.id; }
+                            catch (err) { }
+                        }
+                        if (prev_element != undefined) {
+                            var prev_id = prev_element.split("_");
+                            var curr_id = Pawn_id.split("_");
+                            if (curr_id[0] == prev_id[0]) {
+                                alert("Move another pawn");
+                                document.getElementById(starting_pos).appendChild(document.getElementById(Pawn_id));
+                                return;
+                            }
+                            else {
+                                kill(Pawn_id, prev_element);
+                            }
+                        }
+
+                        var display_val = "";
+                        var skipped = false;
+                        var first = true;
+
+                        if (current_vals.length > 1) {
+                            for (i = 0; i < current_vals.length; i++) {
+                                if (!(skipped)) {
+                                    if (current_vals[i] != current_value) {
+                                        if (first) {
+                                            display_val = current_vals[i];
+                                            first = false;
+                                        }
+                                        else {
+                                            display_val = display_val.concat(" + ", current_vals[i]);
+                                        }
+                                    } else {
+                                        skipped = true;
+                                    }
+                                }
+                                else {
+                                    if (first) {
+                                        display_val = current_vals[i];
+                                        first = false;
+                                    }
+                                    else {
+                                        display_val = display_val.concat(" + ", current_vals[i]);
+                                    }
+                                }
+                            }
+
+                            document.getElementById('Point_display1').innerHTML = display_val;
+                            document.getElementById('Point_display2').innerHTML = display_val;
                         }
                         else {
-                            display_val = display_val.concat(' + ', current_vals[i]);
+
+                            document.getElementById('Point_display1').innerHTML = "0";
+                            document.getElementById('Point_display2').innerHTML = "0";
+
+                            document.getElementById('roll_btn').style.visibility = 'visible';
                         }
+                        if (document.getElementById(Pawn_id).parentNode.id == "24") {
+                            document.getElementById(Pawn_id).style.visibility = "hidden";
+                            document.getElementById(Pawn_id).style.border = "0px";
+                            document.getElementById(Pawn_id).style.margin = "0px";
+                            document.getElementById("win_pawns").appendChild(document.getElementById(Pawn_id));
+                        };
+                    }
 
-                    };
-                };
-                document.getElementById('Point_display1').innerHTML = display_val;
-                document.getElementById('Point_display2').innerHTML = display_val;
+                }, i * 200);
+            }
+
+            function kill(Pawn_id, prev_id) {
+                if (prev_id.includes('red')) {
+                    document.getElementById("0").appendChild(document.getElementById(prev_id))
+                }
+                else if (prev_id.includes('blue')) {
+                    document.getElementById("4").appendChild(document.getElementById(prev_id))
+                }
+                else if (prev_id.includes('yellow')) {
+                    document.getElementById("8").appendChild(document.getElementById(prev_id))
+                }
+                else if (prev_id.includes('black')) {
+                    document.getElementById("12").appendChild(document.getElementById(prev_id))
+                }
 
             }
-            else {
+            function correct_pos(pawn_to_pos, pawn_to_pos_last, Pawn_id) {
+                if (Pawn_id.includes('red')) {
+                    return pawn_to_pos;
+                }
+                else if (Pawn_id.includes('blue')) {
+                    if (pawn_to_pos == 16) {
+                        if (pawn_to_pos_last == 15) {
+                            return 0;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 4) {
+                        if (pawn_to_pos_last == 3) {
+                            return 22;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 24) {
+                        if (pawn_to_pos_last == 23) {
+                            return 16;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 22) {
+                        if (pawn_to_pos_last == 21) {
+                            return 24;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else {
+                        return pawn_to_pos;
+                    }
+                }
+                else if (Pawn_id.includes('yellow')) {
+                    if (pawn_to_pos == 16) {
+                        if (pawn_to_pos_last == 15) {
+                            return 0;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 8) {
+                        if (pawn_to_pos_last == 7) {
+                            return 20;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 24) {
+                        if (pawn_to_pos_last == 23) {
+                            return 16;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 20) {
+                        if (pawn_to_pos_last == 19) {
+                            return 24;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else {
+                        return pawn_to_pos;
+                    }
+                }
+                else if (Pawn_id.includes('black')) {
+                    if (pawn_to_pos == 16) {
+                        if (pawn_to_pos_last == 15) {
+                            return 0;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 12) {
+                        if (pawn_to_pos_last == 11) {
+                            return 18;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 24) {
+                        if (pawn_to_pos_last == 23) {
+                            return 16;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else if (pawn_to_pos == 18) {
+                        if (pawn_to_pos_last == 17) {
+                            return 24;
+                        }
+                        else {
+                            return pawn_to_pos;
+                        }
+                    }
+                    else {
+                        return pawn_to_pos;
+                    }
+                }
+            };
+            //-------------------------------------------------------------------------------------------------------------------------------------
 
-                document.getElementById('Point_display1').innerHTML = "0";
-                document.getElementById('Point_display2').innerHTML = "0";
-
-                document.getElementById('roll_btn').style.visibility = 'visible';
-            }
-            if (document.getElementById(Pawn_id).parentNode.id == "24") {
-                document.getElementById(Pawn_id).style.visibility = "hidden";
-                document.getElementById(Pawn_id).style.border = "0px";
-                document.getElementById(Pawn_id).style.margin = "0px";
-                document.getElementById("win_pawns").appendChild(document.getElementById(Pawn_id));
-            }
         }
     </script>
 </body>
