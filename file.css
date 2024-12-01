@@ -1,112 +1,110 @@
 html,
 body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .FrameDiv {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .LineDiv {
-    display: flex;
-    justify-content: center;
-    margin: 1px 0;
+  display: flex;
+  justify-content: center;
+  margin: 1px 0;
 }
 
 .Box {
-    margin: 1px;
-    align-items: center;
-    justify-content: center;
-    background-image: url(1.jpeg);
-    background-size: 300px;
-    max-width: 300GE px;
-    height: 300px;
-    max-height: 300px;
-    display: block;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 1px;
+  align-items: center;
+  justify-content: center;
+  background-image: url(1.jpeg);
+  background-size: 300px;
+  max-width: 300GE px;
+  height: 300px;
+  max-height: 300px;
+  display: block;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Boxsafe {
-    margin: 1px;
-    align-items: center;
-    justify-content: center;
-    background-image: url(2.jpeg);
-    background-size: 300px;
-    max-width: 300GE px;
-    height: 300px;
-    max-height: 300px;
-    display: block;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  margin: 1px;
+  align-items: center;
+  justify-content: center;
+  background-image: url(2.jpeg);
+  background-size: 300px;
+  max-width: 300GE px;
+  height: 300px;
+  max-height: 300px;
+  display: block;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pawn {
-    border-radius: 50%;
-    border: 25px solid transparent;
-    margin: 20px;
+  border-radius: 50%;
+  border: 25px solid transparent;
+  margin: 20px;
 }
 
 .pawn1 {
-    background: linear-gradient(#222, #222),
-        linear-gradient(135deg, #fd6d19 10%, #f50202 100%);
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+  background: linear-gradient(#222, #222),
+    linear-gradient(135deg, #fd6d19 10%, #f50202 100%);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
 }
 
 .pawn2 {
-    background: linear-gradient(#222, #222),
-        linear-gradient(#6B73FF, #000DFF);
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+  background: linear-gradient(#222, #222), linear-gradient(#6b73ff, #000dff);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
 }
 
 .pawn3 {
-    background: linear-gradient(#222, #222),
-        linear-gradient(#0c0d22, #000000);
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+  background: linear-gradient(#222, #222), linear-gradient(#0c0d22, #000000);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
 }
 
 .pawn4 {
-    background: linear-gradient(#222, #222),
-        linear-gradient(#e7c81a, #e5ff00);
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+  background: linear-gradient(#222, #222), linear-gradient(#e7c81a, #e5ff00);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
 }
 
 .row {
-    align-content: center;
+  align-content: center;
 }
 
 .expand_pawn {
-    height: 120px;
-    align-content: center;
+  height: 120px;
+  align-content: center;
 }
-.roll_btn{
-    border-radius: 50%;
-    padding: 100px 100px;
-    background-image: url(Yellow.png);
-    background-size: 200px;
-    visibility: visible;
+.roll_btn {
+  border-radius: 50%;
+  padding: 100px 100px;
+  background-image: url(Yellow.png);
+  background-size: 200px;
+  visibility: visible;
+  box-shadow: 0 0px 2000px 0 rgba(0, 0, 0, 0.2),
+    0 0px 200px 0 rgba(0, 0, 0, 0.19);
 }
-.Point_display{
-    width: 300px;
+.Point_display {
+  width: 300px;
   border: 2px solid rgb(0, 0, 0);
   height: 40px;
   margin: 20px;
@@ -115,62 +113,68 @@ body {
   font-size: x-large;
   padding-top: 15px;
 }
+.Point_display1 {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+.roll_btn:hover {
+  box-shadow: 0 0px 200px 0 rgba(0, 0, 0, 0.2),
+    0 0px 200px 0 rgba(0, 0, 0, 0.19);
+}
 
 @media only screen and (max-width: 1200px) {
-    .Box {
-        max-height: 170px;
-        max-width: 170px;
-        background-size: 170px;
-        
-    }
+  .Box {
+    max-height: 170px;
+    max-width: 170px;
+    background-size: 170px;
+  }
 
-    .Boxsafe {
-        max-height: 170px;
-        max-width: 170px;
-        background-size: 170px;
-    }
+  .Boxsafe {
+    max-height: 170px;
+    max-width: 170px;
+    background-size: 170px;
+  }
 
-    .pawn {
-        border: 15px solid transparent;
-        margin: 1px;
-
-    }
-    .expand_pawn {
-        height: 60px;
-    }
-    .roll_btn{
-        border-radius: 50%;
-        padding: 70px 70px;
-        background-image: url(Yellow.png);
-        background-size: 140px;
-    }
+  .pawn {
+    border: 15px solid transparent;
+    margin: 1px;
+  }
+  .expand_pawn {
+    height: 60px;
+  }
+  .roll_btn {
+    border-radius: 50%;
+    padding: 70px 70px;
+    background-image: url(Yellow.png);
+    background-size: 140px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .Boxsafe {
-        max-height: 80px;
-        max-width: 80px;
-        background-size: 80px;
-    }
+  .Boxsafe {
+    max-height: 80px;
+    max-width: 80px;
+    background-size: 80px;
+  }
 
-    .Box {
-        max-height: 80px;
-        max-width: 80px;
-        background-size: 80px;
-    }
+  .Box {
+    max-height: 80px;
+    max-width: 80px;
+    background-size: 80px;
+  }
 
-    .pawn {
-        border: 8px solid transparent;
-        margin: 1px;
-    }
+  .pawn {
+    border: 8px solid transparent;
+    margin: 1px;
+  }
 
-    .expand_pawn {
-        height: 40px;
-    }
-    .roll_btn{
-        border-radius: 50%;
-        padding: 30px 30px;
-        background-image: url(Yellow.png);
-        background-size: 60px;
-    }
+  .expand_pawn {
+    height: 40px;
+  }
+  .roll_btn {
+    border-radius: 50%;
+    padding: 30px 30px;
+    background-image: url(Yellow.png);
+    background-size: 60px;
+  }
 }
