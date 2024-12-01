@@ -97,7 +97,7 @@ body {
 .roll_btn {
   border-radius: 50%;
   padding: 100px 100px;
-  background-image: url(Yellow.png);
+  background-image: url(yellow.png);
   background-size: 200px;
   visibility: visible;
   box-shadow: 0 0px 2000px 0 rgba(0, 0, 0, 0.2),
